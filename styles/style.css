@@ -1,5 +1,32 @@
+/* google fonts  */
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Roboto&display=swap');
+
+
+body{
+    background-color: #f6f6f728;
+    font-family: 'Roboto', sans-serif;
+}
+
+.logo-font span{
+    font-family: 'Berkshire Swash', cursive;
+}
+
 a{
     text-decoration: none;
     cursor: pointer;
 }
 
+#catagories-items-container .card{
+    box-shadow: 1rem -1rem 1rem rgba(0, 0, 0, 0.095), -1rem 1rem 1rem rgba(0, 0, 0, 0.088);
+    border: none;
+}
+
+#catagories-items-container .card img{
+    height: 100%;
+}
+
+.author-img img{
+    width: 30px;
+    height: 30px;
+    border-radius: 155px;
+}
