@@ -35,11 +35,49 @@
     </header>
 
     <main>
+
+        <!-- // catagories section  -->
         <section class="container">
             <div id="catagories-container" class="row row-cols-8 d-flex justify-content-evenly mx-2"></div>
         </section>
+
+        <!-- //items founded section  -->
+        <section class="container my-4 ml-5 pl-5">
+          <div id="items-founded"></div>
+        </section>
+
+        <!-- // catagories items section  -->
         <section class="container my-5">
           <div id="catagories-items-container" class="row row-cols-1 g-5"></div>
+        </section>
+
+        <!-- // spinner section  -->
+        <section class="d-none" id="spinner">
+          <div class="d-flex justify-content-center" style="margin-top: 200px;">
+            <div class="spinner-border text-danger" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </div>
+        </section>
+
+        <!--// Modal Section -->
+        <section>
+          <div class="modal fade" id="showDetailsModal" tabindex="-1" aria-labelledby="showDetailsModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="showDetailsModalLabel"></h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div id="modal-body" class="modal-body">
+                  ...
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
     </main>
 

@@ -18,6 +18,8 @@ const displayCatagories = catagories => {
 }
 
 const loadOpenCatagory = async(catagoryId = `01`) => {
+    // spinner start 
+    spinnerLoader(true);
     let url = `https://openapi.programming-hero.com/api/news/category/${catagoryId}`;
     let res = await fetch(url);
     let data = await res.json();
@@ -25,6 +27,17 @@ const loadOpenCatagory = async(catagoryId = `01`) => {
 }
 
 const displayOpenCatagory = async(catagoryDetails) => {
+    //found items 
+    let getItemsFounded = document.getElementById(`items-founded`);
+    getItemsFounded.innerHTML = ``;
+    let createFoundDiv = document.createElement(`div`);
+    createFoundDiv.classList.add(`col`);
+    createFoundDiv.innerHTML = `
+        <h4 class="text-dark">${catagoryDetails.length} items found for category</h4>
+
+    `
+    getItemsFounded.appendChild(createFoundDiv);
+    
     let getCatagoriesItemsContainer = document.getElementById(`catagories-items-container`);
     getCatagoriesItemsContainer.innerHTML = ``;
     catagoryDetails.forEach(catagoryItem => {
@@ -44,14 +57,15 @@ const displayOpenCatagory = async(catagoryDetails) => {
                         <div class="author d-flex">
                             <div class="author-img" style="margin-right: 15px"><img src="${catagoryItem.author.img}" class="img-fluid rounded" alt""></div>
                             <div>
-                                <p style="font-size: 13px; font-weight: 600; margin: 0">${catagoryItem.author.name}</p>
-                                <p style="font-size: 12px; font-weight: 500; margin: 0">${catagoryItem.author.published_date}</p>
+                                <p style="font-size: 13px; font-weight: 600; margin: 0">${catagoryItem.author.name ? catagoryItem.author.name : `no data found`}</p>
+                                <p style="font-size: 12px; font-weight: 500; margin: 0">${catagoryItem.author.published_date ? catagoryItem.author.published_date : `no data found`}</p>
                             </div>
                         </div>
-                        <div class=""><i class="fa-solid fa-eye"></i>  ${catagoryItem.total_view}</div>
+                        <div class=""><i class="fa-solid fa-eye"></i>  ${catagoryItem.total_view ? catagoryItem.total_view : `no data found`}</div>
                         <div class="">rating: ${catagoryItem.rating.number}</div>
                         <div class="bg-dark text-light rounded p-1">
-                            <a>show more <i class="fa-solid fa-arrow-right"></i></a>
+                            <!-- Button trigger modal -->
+                            <a type="button" onclick="loadShowDetails('${catagoryItem._id}')" data-bs-toggle="modal" data-bs-target="#showDetailsModal">show more <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </div>
                     </div>
@@ -61,7 +75,42 @@ const displayOpenCatagory = async(catagoryDetails) => {
         `
         getCatagoriesItemsContainer.appendChild(createNewDiv);
     })
+    // spinner end 
+    spinnerLoader(false);
 }
+
+
+const loadShowDetails = async(showId) => {
+    let url = `https://openapi.programming-hero.com/api/news/${showId}`;
+    let res = await fetch(url);
+    let data = await res.json();
+    displayShowDetails(data.data[0]);
+}
+
+const displayShowDetails = showDetails => {
+    let modalTitle = document.getElementById(`showDetailsModalLabel`);
+    modalTitle.innerText = showDetails.title;
+    let modalBody = document.getElementById(`modal-body`);
+    modalBody.innerHTML = `
+        <img src="${showDetails.author.img}" alt"">
+        <h4>author: ${showDetails.author ? showDetails.author.name : `no data found`}</h4>
+        <h5>blog published: ${showDetails.author ? showDetails.author.published_date : `no data found`}</h5>
+    `
+    console.log(showDetails);
+}
+
+
+// spinner 
+
+const spinnerLoader = isLoading => {
+    let getSpinner = document.getElementById(`spinner`);
+    if(isLoading){
+        getSpinner.classList.remove(`d-none`);
+    }else{
+        getSpinner.classList.add(`d-none`);
+    }
+}
+
 
 loadCatagories();
 loadOpenCatagory();
