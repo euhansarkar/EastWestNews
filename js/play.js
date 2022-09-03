@@ -64,16 +64,16 @@ const displayOpenCatagory = async(catagoryDetails, catagoryName) => {
                 <div class="col-md-8">
                     <div class="card-body">
                     <h5 class="card-title">${catagoryItem.title}</h5>
-                    <p class="card-text">${catagoryItem.details.slice(0, 200)}</p>
+                    <p class="card-text">${catagoryItem.details.length > 200 ? catagoryItem.details.slice(0, 200).concat(`....`) : catagoryItem.details}</p>
                     <div class="d-flex row justify-content-between align-items-center mt-3">
-                        <div class="author col-8 col-md-3 col-sm-4 mb-1 d-flex">
+                        <div class="author col-8 col-md-4 col-sm-4 mb-1 d-flex">
                         <div class="author-img" style="margin-right: 15px"><img src="${catagoryItem.author.img}" class="img-fluid rounded" alt""></div>
                         <div>
                             <p style="font-size: 13px; font-weight: 600; margin: 0">${catagoryItem.author.name ? catagoryItem.author.name : `no data found`}</p>
                             <p class="" style="font-size: 12px; font-weight: 500; margin: 0">${catagoryItem.author.published_date ? catagoryItem.author.published_date : `no data found`}</p>
                         </div>
                     </div>
-                    <div class="col-4 col-md-3 mb-1 col-sm-4"><i class="fa-solid fa-eye"></i>  ${catagoryItem.total_view ? catagoryItem.total_view : `no data found`}</div>
+                    <div class="col-4 col-md-2 mb-1 col-sm-4"><i class="fa-solid fa-eye"></i>  ${catagoryItem.total_view ? catagoryItem.total_view : `no data found`}</div>
                     <div class="col-6 col-md-3 mt-1 d-none d-md-block">rating: ${catagoryItem.rating.number}</div>
                     <div class="bg-dark text-md-center text-light rounded p-1 col-auto mt-1 col-md-3 col-sm-3">
                         <!-- Button trigger modal -->
@@ -126,3 +126,8 @@ const spinnerLoader = isLoading => {
 
 loadCatagories();
 loadOpenCatagory();
+
+document.getElementById(`show-blog`).addEventListener(`click`, function(){
+    let getBlogContainer = document.getElementById(`blogs-container`);
+    getBlogContainer.classList.remove(`d-none`);
+})
