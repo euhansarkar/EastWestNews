@@ -40,6 +40,14 @@ const displayOpenCatagory = async(catagoryDetails, catagoryName) => {
 
     `
     getItemsFounded.appendChild(createFoundDiv);
+
+    // no data found massage
+    let getNoDataFound = document.getElementById(`data-not-found`);
+    if(catagoryDetails.length === 0){
+        getNoDataFound.classList.remove(`d-none`);
+    }else{
+        getNoDataFound.classList.add(`d-none`);
+    }
     
     let getCatagoriesItemsContainer = document.getElementById(`catagories-items-container`);
     getCatagoriesItemsContainer.innerHTML = ``;

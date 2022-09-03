@@ -36,6 +36,15 @@ a{
     height: 100%;
 }
 
+#data-not-found{
+    height: 200px;
+}
+
+#data-not-found h1{
+    padding-top: 6%;
+    text-align: center;
+}
+
 .author-img img{
     width: 25px;
     height: 25px;
