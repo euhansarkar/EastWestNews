@@ -11,22 +11,22 @@ const displayCatagories = catagories => {
         let createDiv = document.createElement(`div`);
         createDiv.classList.add(`col`);
         createDiv.innerHTML = `
-            <a class="fs-6 text-dark" onclick="loadOpenCatagory('${catagory.category_id}')">${catagory.category_name}</a>
+            <a class="fs-6 text-dark" onclick="loadOpenCatagory('${catagory.category_id}', '${catagory.category_name}')">${catagory.category_name}</a>
         `
         getCatagories.appendChild(createDiv);
     })
 }
 
-const loadOpenCatagory = async(catagoryId = `01`) => {
+const loadOpenCatagory = async(catagoryId = `01`, catagoryName = `Breaking News`) => {
     // spinner start 
     spinnerLoader(true);
     let url = `https://openapi.programming-hero.com/api/news/category/${catagoryId}`;
     let res = await fetch(url);
     let data = await res.json();
-    displayOpenCatagory(data.data);
+    displayOpenCatagory(data.data, catagoryName);
 }
 
-const displayOpenCatagory = async(catagoryDetails) => {
+const displayOpenCatagory = async(catagoryDetails, catagoryName) => {
     console.log(catagoryDetails);
     //default sorted by view 
     catagoryDetails.sort(((cat1, cat2) => cat2.total_view - cat1.total_view));
@@ -36,7 +36,7 @@ const displayOpenCatagory = async(catagoryDetails) => {
     let createFoundDiv = document.createElement(`div`);
     createFoundDiv.classList.add(`col`);
     createFoundDiv.innerHTML = `
-        <h4 class="text-dark shadow-lg p-3 mb-5 bg-body rounded mx-auto" style="width: 1000px">${catagoryDetails.length} items found for category</h4>
+        <h4 class="text-dark shadow-lg p-3 mb-5 bg-body rounded mx-auto" style="width: 1000px">${catagoryDetails.length} items found for category "${catagoryName}"</h4>
 
     `
     getItemsFounded.appendChild(createFoundDiv);

@@ -16,6 +16,17 @@ a{
     cursor: pointer;
 }
 
+#catagories-container div:nth-child(7){
+    flex-shrink: 0.7;
+}
+#catagories-container div:nth-child(1){
+    flex-grow: 1.2;
+}
+#catagories-container div:nth-child(3){
+    flex-grow: 1.5;
+}
+
+
 #catagories-items-container .card{
     box-shadow: 1rem -1rem 1rem rgba(0, 0, 0, 0.095), -1rem 1rem 1rem rgba(0, 0, 0, 0.088);
     border: none;
