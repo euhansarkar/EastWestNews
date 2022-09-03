@@ -142,9 +142,18 @@ const displayShowDetails = showDetails => {
     modalTitle.innerText = showDetails.title;
     let modalBody = document.getElementById(`modal-body`);
     modalBody.innerHTML = `
-        <img src="${showDetails.author.img}" alt"">
-        <h4>author: ${showDetails.author ? showDetails.author.name : `no data found`}</h4>
-        <h5>blog published: ${showDetails.author ? showDetails.author.published_date : `no data found`}</h5>
+        <div class="d-flex align-items-center">
+            <div>
+                <img src="${showDetails.author.img}" alt"">
+            </div>
+            <div class="ms-3">
+                <h4>author: ${showDetails.author ? showDetails.author.name : `no data found`}</h4>
+                <h5>blog published: ${showDetails.author ? showDetails.author.published_date : `no data found`}</h5>
+            </div>
+        </div>
+        <div class="modal-content">
+            <p>${showDetails.details}</p>
+        </div>
     `
 }
 
