@@ -38,8 +38,7 @@ const displayOpenCatagory = async(catagoryDetails, catagoryName) => {
     let createFoundDiv = document.createElement(`div`);
     createFoundDiv.classList.add(`col`);
     createFoundDiv.innerHTML = `
-        <h4 class="text-dark shadow-lg p-3 mb-5 bg-body rounded mx-auto" style="width: 1000px">${catagoryDetails.length} items found for category "${catagoryName}"</h4>
-
+        <h4 class="text-dark shadow-lg p-3 mb-5 bg-body text-center text-md-left rounded mx-auto" style="max-width: 1000px">${catagoryDetails.length} items found for category "${catagoryName}"</h4>
     `
     getItemsFounded.appendChild(createFoundDiv);
 
@@ -66,21 +65,21 @@ const displayOpenCatagory = async(catagoryDetails, catagoryName) => {
                     <div class="card-body">
                     <h5 class="card-title">${catagoryItem.title}</h5>
                     <p class="card-text">${catagoryItem.details.slice(0, 200)}</p>
-                    <div class="d-flex justify-content-between align-items-center mt-3">
-                        <div class="author d-flex">
-                            <div class="author-img" style="margin-right: 15px"><img src="${catagoryItem.author.img}" class="img-fluid rounded" alt""></div>
-                            <div>
-                                <p style="font-size: 13px; font-weight: 600; margin: 0">${catagoryItem.author.name ? catagoryItem.author.name : `no data found`}</p>
-                                <p style="font-size: 12px; font-weight: 500; margin: 0">${catagoryItem.author.published_date ? catagoryItem.author.published_date : `no data found`}</p>
-                            </div>
-                        </div>
-                        <div class=""><i class="fa-solid fa-eye"></i>  ${catagoryItem.total_view ? catagoryItem.total_view : `no data found`}</div>
-                        <div class="">rating: ${catagoryItem.rating.number}</div>
-                        <div class="bg-dark text-light rounded p-1">
-                            <!-- Button trigger modal -->
-                            <a type="button" onclick="loadShowDetails('${catagoryItem._id}')" data-bs-toggle="modal" data-bs-target="#showDetailsModal">show more <i class="fa-solid fa-arrow-right"></i></a>
+                    <div class="d-flex row justify-content-between align-items-center mt-3">
+                        <div class="author col-8 col-md-3 col-sm-4 mb-1 d-flex">
+                        <div class="author-img" style="margin-right: 15px"><img src="${catagoryItem.author.img}" class="img-fluid rounded" alt""></div>
+                        <div>
+                            <p style="font-size: 13px; font-weight: 600; margin: 0">${catagoryItem.author.name ? catagoryItem.author.name : `no data found`}</p>
+                            <p class="" style="font-size: 12px; font-weight: 500; margin: 0">${catagoryItem.author.published_date ? catagoryItem.author.published_date : `no data found`}</p>
                         </div>
                     </div>
+                    <div class="col-4 col-md-3 mb-1 col-sm-4"><i class="fa-solid fa-eye"></i>  ${catagoryItem.total_view ? catagoryItem.total_view : `no data found`}</div>
+                    <div class="col-6 col-md-3 mt-1 d-none d-md-block">rating: ${catagoryItem.rating.number}</div>
+                    <div class="bg-dark text-md-center text-light rounded p-1 col-auto mt-1 col-md-3 col-sm-3">
+                        <!-- Button trigger modal -->
+                        <a type="button" onclick="loadShowDetails('${catagoryItem._id}')" data-bs-toggle="modal" data-bs-target="#showDetailsModal">show more <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                        </div>
                     </div>
                 </div>
                 </div>
