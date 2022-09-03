@@ -97,16 +97,16 @@ const displayOpenCatagory = async(catagoryDetails, catagoryName) => {
                     <h5 class="card-title">${catagoryItem.title}</h5>
                     <p class="card-text">${catagoryItem.details.length > 200 ? catagoryItem.details.slice(0, 200).concat(`....`) : catagoryItem.details}</p>
                     <div class="d-flex row justify-content-between align-items-center mt-3">
-                        <div class="author col-8 col-md-4 col-sm-4 mb-1 d-flex">
+                        <div class="author col-8 col-md-4 col-sm-4 my-1 d-flex">
                         <div class="author-img" style="margin-right: 15px"><img src="${catagoryItem.author.img}" class="img-fluid rounded" alt""></div>
                         <div>
                             <p style="font-size: 13px; font-weight: 600; margin: 0">${catagoryItem.author.name ? catagoryItem.author.name : `no data found`}</p>
                             <p class="" style="font-size: 12px; font-weight: 500; margin: 0">${catagoryItem.author.published_date ? catagoryItem.author.published_date : `no data found`}</p>
                         </div>
                     </div>
-                    <div class="col-4 col-md-2 mb-1 col-sm-4"><i class="fa-solid fa-eye"></i>  ${catagoryItem.total_view ? catagoryItem.total_view : `no data found`}</div>
-                    <div class="col-6 col-md-3 mt-1 d-none d-md-block">rating: ${catagoryItem.rating.number}</div>
-                    <div class="bg-dark text-md-center text-light rounded p-1 col-auto mt-1 col-md-3 col-sm-3">
+                    <div class="col-4 col-md-2 mb-1 col-sm-4 my-1"><i class="fa-solid fa-eye"></i>  ${catagoryItem.total_view ? catagoryItem.total_view : `no data found`}</div>
+                    <div class="col-6 col-md-3 my-1 d-none d-md-block">rating: ${catagoryItem.rating.number}</div>
+                    <div class="bg-dark text-md-center text-light rounded p-1 col-auto my-1 col-md-3 col-sm-3">
                         <!-- Button trigger modal -->
                         <a type="button" onclick="loadShowDetails('${catagoryItem._id}')" data-bs-toggle="modal" data-bs-target="#showDetailsModal">show more <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
@@ -147,8 +147,11 @@ const displayShowDetails = showDetails => {
                 <img src="${showDetails.author.img}" alt"">
             </div>
             <div class="ms-3">
-                <h4>author: ${showDetails.author ? showDetails.author.name : `no data found`}</h4>
-                <h5>blog published: ${showDetails.author ? showDetails.author.published_date : `no data found`}</h5>
+                <h4>author: ${showDetails.author.name ? showDetails.author.name : `no data found`}</h4>
+                <h5>blog published: ${showDetails.author.published_date ? showDetails.author.published_date : `no data found`}</h5>
+                <div>
+                    <i class="fa-solid fa-eye"></i>  ${showDetails.total_view ? showDetails.total_view : `no data found`}    
+                </div>
             </div>
         </div>
         <div class="modal-content">
