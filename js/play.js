@@ -10,6 +10,8 @@ const displayCatagories = catagories => {
     catagories.forEach(catagory => {
         let createDiv = document.createElement(`div`);
         createDiv.classList.add(`col`);
+        createDiv.classList.add(`col-6`);
+        createDiv.classList.add(`col-md-1`);
         createDiv.innerHTML = `
             <a class="fs-6 text-dark" onclick="loadOpenCatagory('${catagory.category_id}', '${catagory.category_name}')">${catagory.category_name}</a>
         `
@@ -55,7 +57,7 @@ const displayOpenCatagory = async(catagoryDetails, catagoryName) => {
         let createNewDiv = document.createElement(`div`);
         createNewDiv.classList.add(`col`);
         createNewDiv.innerHTML = `
-            <div class="card mb-3 mx-auto p-3" style="width: 1000px">
+            <div class="card mb-3 mx-auto p-3" style="max-width: 1000px">
                 <div class="row g-0">
                 <div class="col-md-4">
                     <img src="${catagoryItem.image_url}" class="img-fluid rounded-start" alt="...">

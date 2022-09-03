@@ -20,10 +20,10 @@ a{
     flex-shrink: 0.7;
 }
 #catagories-container div:nth-child(1){
-    flex-grow: 1.2;
+    flex-grow: 1.1;
 }
 #catagories-container div:nth-child(3){
-    flex-grow: 1.5;
+    flex-grow: 1.3;
 }
 
 
