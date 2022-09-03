@@ -33,7 +33,7 @@ const displayOpenCatagory = async(catagoryDetails) => {
     let createFoundDiv = document.createElement(`div`);
     createFoundDiv.classList.add(`col`);
     createFoundDiv.innerHTML = `
-        <h4 class="text-dark">${catagoryDetails.length} items found for category</h4>
+        <h4 class="text-dark shadow-lg p-3 mb-5 bg-body rounded mx-auto" style="width: 1000px">${catagoryDetails.length} items found for category</h4>
 
     `
     getItemsFounded.appendChild(createFoundDiv);
