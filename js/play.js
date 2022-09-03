@@ -1,3 +1,19 @@
+
+const loadUser = async() => {
+    let url = `https://randomuser.me/api/?gender=female`;
+    let res = await fetch(url);
+    let data = await res.json();
+    console.log(data);
+    displayUser(data.results[0].picture.medium);
+}
+
+const displayUser = data => {
+    let getUserId = document.getElementById(`user`);
+    getUserId.setAttribute(`src`, `${data}`);
+}
+
+loadUser();
+
 const loadCatagories = async() => {
     let url = `https://openapi.programming-hero.com/api/news/categories`;
     let res = await fetch(url);
@@ -29,7 +45,6 @@ const loadOpenCatagory = async(catagoryId = `01`, catagoryName = `Breaking News`
 }
 
 const displayOpenCatagory = async(catagoryDetails, catagoryName) => {
-    console.log(catagoryDetails);
     //default sorted by view 
     catagoryDetails.sort(((cat1, cat2) => cat2.total_view - cat1.total_view));
     //found items 
@@ -108,7 +123,6 @@ const displayShowDetails = showDetails => {
         <h4>author: ${showDetails.author ? showDetails.author.name : `no data found`}</h4>
         <h5>blog published: ${showDetails.author ? showDetails.author.published_date : `no data found`}</h5>
     `
-    console.log(showDetails);
 }
 
 
