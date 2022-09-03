@@ -1,10 +1,13 @@
 
 const loadUser = async() => {
-    let url = `https://randomuser.me/api/?gender=female`;
-    let res = await fetch(url);
-    let data = await res.json();
-    console.log(data);
-    displayUser(data.results[0].picture.medium);
+    try{
+        let url = `https://randomuser.me/api/?gender=female`;
+        let res = await fetch(url);
+        let data = await res.json();
+        displayUser(data.results[0].picture.medium);
+    }catch(err){
+        console.log(err);
+    }
 }
 
 const displayUser = data => {
@@ -15,10 +18,14 @@ const displayUser = data => {
 loadUser();
 
 const loadCatagories = async() => {
-    let url = `https://openapi.programming-hero.com/api/news/categories`;
-    let res = await fetch(url);
-    let data = await res.json();
-    displayCatagories(data.data.news_category);
+    try{
+        let url = `https://openapi.programming-hero.com/api/news/categories`;
+        let res = await fetch(url);
+        let data = await res.json();
+        displayCatagories(data.data.news_category);
+    }catch(err){
+        console.log(err);
+    }
 }
 
 const displayCatagories = catagories => {
@@ -38,27 +45,36 @@ const displayCatagories = catagories => {
 const loadOpenCatagory = async(catagoryId = `01`, catagoryName = `Breaking News`) => {
     // spinner start 
     spinnerLoader(true);
-    let url = `https://openapi.programming-hero.com/api/news/category/${catagoryId}`;
-    let res = await fetch(url);
-    let data = await res.json();
-    displayOpenCatagory(data.data, catagoryName);
+    try{
+        let url = `https://openapi.programming-hero.com/api/news/category/${catagoryId}`;
+        let res = await fetch(url);
+        let data = await res.json();
+        displayOpenCatagory(data.data, catagoryName);
+    }catch(err){
+        console.log(err);
+    }
 }
 
 const displayOpenCatagory = async(catagoryDetails, catagoryName) => {
     //default sorted by view 
     catagoryDetails.sort(((cat1, cat2) => cat2.total_view - cat1.total_view));
     //found items 
-    let getItemsFounded = document.getElementById(`items-founded`);
-    getItemsFounded.innerHTML = ``;
-    let createFoundDiv = document.createElement(`div`);
-    createFoundDiv.classList.add(`col`);
-    createFoundDiv.innerHTML = `
-        <h4 class="text-dark shadow-lg p-3 mb-5 bg-body text-center text-md-left rounded mx-auto" style="max-width: 1000px">${catagoryDetails.length} items found for category "${catagoryName}"</h4>
-    `
-    getItemsFounded.appendChild(createFoundDiv);
+    try{
+        let getItemsFounded = document.getElementById(`items-founded`);
+        getItemsFounded.innerHTML = ``;
+        let createFoundDiv = document.createElement(`div`);
+        createFoundDiv.classList.add(`col`);
+        createFoundDiv.innerHTML = `
+            <h4 class="text-dark shadow-lg p-3 mb-5 bg-body text-center text-md-left rounded mx-auto" style="max-width: 1000px">${catagoryDetails.length} items found for category "${catagoryName}"</h4>
+        `
+        getItemsFounded.appendChild(createFoundDiv);
+    }catch(err){
+        console.log(err);
+    }
 
     // no data found massage
-    let getNoDataFound = document.getElementById(`data-not-found`);
+    try{
+        let getNoDataFound = document.getElementById(`data-not-found`);
     if(catagoryDetails.length === 0){
         getNoDataFound.classList.remove(`d-none`);
     }else{
@@ -102,16 +118,23 @@ const displayOpenCatagory = async(catagoryDetails, catagoryName) => {
         `
         getCatagoriesItemsContainer.appendChild(createNewDiv);
     })
+    }catch(err){
+        console.log(err);
+    }
     // spinner end 
     spinnerLoader(false);
 }
 
 
 const loadShowDetails = async(showId) => {
-    let url = `https://openapi.programming-hero.com/api/news/${showId}`;
-    let res = await fetch(url);
-    let data = await res.json();
-    displayShowDetails(data.data[0]);
+    try{
+        let url = `https://openapi.programming-hero.com/api/news/${showId}`;
+        let res = await fetch(url);
+        let data = await res.json();
+        displayShowDetails(data.data[0]);
+    }catch(err){
+        console.log(err);
+    }
 }
 
 const displayShowDetails = showDetails => {
@@ -129,11 +152,15 @@ const displayShowDetails = showDetails => {
 // spinner 
 
 const spinnerLoader = isLoading => {
-    let getSpinner = document.getElementById(`spinner`);
-    if(isLoading){
-        getSpinner.classList.remove(`d-none`);
-    }else{
-        getSpinner.classList.add(`d-none`);
+    try{
+        let getSpinner = document.getElementById(`spinner`);
+        if(isLoading){
+            getSpinner.classList.remove(`d-none`);
+        }else{
+            getSpinner.classList.add(`d-none`);
+        }
+    }catch(err){
+        console.log(err);
     }
 }
 
