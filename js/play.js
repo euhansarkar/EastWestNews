@@ -126,8 +126,3 @@ const spinnerLoader = isLoading => {
 
 loadCatagories();
 loadOpenCatagory();
-
-document.getElementById(`show-blog`).addEventListener(`click`, function(){
-    let getBlogContainer = document.getElementById(`blogs-container`);
-    getBlogContainer.classList.remove(`d-none`);
-})
