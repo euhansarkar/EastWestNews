@@ -46,6 +46,7 @@
             <form class="d-flex" role="search">
               <a class="text-capitalize mx-3 text-dark" href="index.html">news</a>
               <a class="text-capitalize mx-3 text-dark" href="blogs.html">blogs</a>
+              <img id="user" class="mx-3 img-fluid" alt="">
             </form>
           </div>
         </div>
@@ -55,12 +56,12 @@
 
           <!-- // bolg section  -->
     <main>
-        <section class="text-center text-danger py-2">
-            <h1>read our blogs</h1>
+        <section class="text-center text-dark py-2">
+            <h1><u>read our blogs</u></h1>
         </section>
       <section class="container my-5">
-        <div id="blogs-container">
-          <div class="card mb-3 mx-auto p-3" style="max-width: 1000px">
+        <div id="catagories-items-container">
+          <div class="card mb-3 mx-auto p-3 my-5" style="max-width: 1000px">
             <div class="row g-0">
               <div class="col-md-4">
                 <img
@@ -71,7 +72,7 @@
               </div>
               <div class="col-md-8">
                 <div class="card-body">
-                  <h5 class="card-title">
+                  <h5 class="card-title text-capitalize">
                     what is the difference between var, let and const in
                     javascript?
                   </h5>
@@ -125,7 +126,7 @@
               </div>
             </div>
           </div>
-          <div class="card mb-3 mx-auto p-3" style="max-width: 1000px">
+          <div class="card mb-3 mx-auto p-3 my-5" style="max-width: 1000px">
             <div class="row g-0">
               <div class="col-md-4">
                 <img
@@ -136,18 +137,14 @@
               </div>
               <div class="col-md-8">
                 <div class="card-body">
-                  <h5 class="card-title">
-                    what is the difference between var, let and const in
+                  <h5 class="card-title text-capitalize">
+                    what is the difference between Regular Function and arrow Function  in
                     javascript?
                   </h5>
                   <p class="card-text">
-                    Var, let and const are basically used for variable
-                    declaration in javascript. When you declare a variable you
-                    by using var, you can redeclare it. But you can't redaclare
-                    a variable if you are use let or const. By using var and let
-                    you can reassign a variable. But you can't reassign a
-                    variable if you declare it by using const. it is the simple
-                    difference.
+                    Regular function is basically use for define a function. Before ES6 we are used this function. But we get some problem in regular function. Like when we define a callback function regular function is always change the callback functions inner functions "this". To solve the issue ES6 introduce a feature. that's call "arrow funciton".</p>
+                    <p></p>
+                    The arrow funciton syntax is very easy. But we have some problem with arrow function. We know, regular function is by default constructor function. But arrow function is not a constructor function.   
                   </p>
                   <div
                     class="d-flex row justify-content-between align-items-center mt-3"
@@ -190,7 +187,7 @@
               </div>
             </div>
           </div>
-          <div class="card mb-3 mx-auto p-3" style="max-width: 1000px">
+          <div class="card mb-3 mx-auto p-3 my-5" style="max-width: 1000px">
             <div class="row g-0">
               <div class="col-md-4">
                 <img
@@ -201,18 +198,15 @@
               </div>
               <div class="col-md-8">
                 <div class="card-body">
-                  <h5 class="card-title">
-                    what is the difference between var, let and const in
-                    javascript?
+                  <h5 class="card-title text-capitalize">
+                    .forEach(), .map(), .filter() .... What's the difference?
                   </h5>
                   <p class="card-text">
-                    Var, let and const are basically used for variable
-                    declaration in javascript. When you declare a variable you
-                    by using var, you can redeclare it. But you can't redaclare
-                    a variable if you are use let or const. By using var and let
-                    you can reassign a variable. But you can't reassign a
-                    variable if you declare it by using const. it is the simple
-                    difference.
+                    <b>.forEach()</b> method, is used to execute the same code on every element in an array but does not change the array and it returns undefined.</p>
+                    <p><b>.map()</b> method executes the same code on every element in an array and returns a new array with the updated elements.</p>
+                    <p><b>.filter()</b> method checks every element in an array to see if it meets a certain criteria and returns a new array with the elements that return truthy for the criteria.</p>
+                    <p>
+                      <b>.find()</b> method checks every element in an array to see if it meets a certain criteria and returns only one value with the elements that return truthy for the criteria.
                   </p>
                   <div
                     class="d-flex row justify-content-between align-items-center mt-3"
@@ -255,7 +249,7 @@
               </div>
             </div>
           </div>
-          <div class="card mb-3 mx-auto p-3" style="max-width: 1000px">
+          <div class="card mb-3 mx-auto p-3 my-5" style="max-width: 1000px">
             <div class="row g-0">
               <div class="col-md-4">
                 <img
@@ -267,17 +261,18 @@
               <div class="col-md-8">
                 <div class="card-body">
                   <h5 class="card-title">
-                    what is the difference between var, let and const in
-                    javascript?
+                    Why should we use template literals?
                   </h5>
                   <p class="card-text">
-                    Var, let and const are basically used for variable
-                    declaration in javascript. When you declare a variable you
-                    by using var, you can redeclare it. But you can't redaclare
-                    a variable if you are use let or const. By using var and let
-                    you can reassign a variable. But you can't reassign a
-                    variable if you declare it by using const. it is the simple
-                    difference.
+                    Template Literals are a new ES2015 / ES6 feature that allows you to work with strings in a novel way compared to ES5 and below.They are unique because they provide a lot of features that normal strings built with quotes do not, in particular.</p>
+
+                    <p>they offer a great syntax to define multiline strings   
+                    they provide an easy way to interpolate variables and expressions in strings
+                    they allow you to create DSLs with template tags (DSL means domain specific language, and it’s for example used in React by Styled Components, to define CSS for a component)
+                    Let’s dive into each of these in detail.</p>
+                    
+                   <p> Multiline strings
+                    Pre-ES6, to create a string spanning over two lines you had to use the \ character at the end of a line:
                   </p>
                   <div
                     class="d-flex row justify-content-between align-items-center mt-3"
