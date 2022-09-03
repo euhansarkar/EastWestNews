@@ -27,6 +27,9 @@ const loadOpenCatagory = async(catagoryId = `01`) => {
 }
 
 const displayOpenCatagory = async(catagoryDetails) => {
+    console.log(catagoryDetails);
+    //default sorted by view 
+    catagoryDetails.sort(((cat1, cat2) => cat2.total_view - cat1.total_view));
     //found items 
     let getItemsFounded = document.getElementById(`items-founded`);
     getItemsFounded.innerHTML = ``;
