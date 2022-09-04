@@ -1,4 +1,4 @@
-
+//dynamic image upload for menubar
 const loadUser = async() => {
     try{
         let url = `https://randomuser.me/api/?gender=female`;
@@ -10,6 +10,7 @@ const loadUser = async() => {
     }
 }
 
+// image shown in ui
 const displayUser = data => {
     let getUserId = document.getElementById(`user`);
     getUserId.setAttribute(`src`, `${data}`);
@@ -17,6 +18,9 @@ const displayUser = data => {
 
 loadUser();
 
+
+
+// dynamically all catagories loading
 const loadCatagories = async() => {
     try{
         let url = `https://openapi.programming-hero.com/api/news/categories`;
@@ -27,6 +31,9 @@ const loadCatagories = async() => {
         console.log(err);
     }
 }
+
+
+// catagories section shown in ui catagories section
 
 const displayCatagories = catagories => {
     let getCatagories = document.getElementById(`catagories-container`);
@@ -42,6 +49,8 @@ const displayCatagories = catagories => {
     })
 }
 
+
+// load catagories section items
 const loadOpenCatagory = async(catagoryId = `01`, catagoryName = `Breaking News`) => {
     // spinner start 
     spinnerLoader(true);
@@ -55,10 +64,15 @@ const loadOpenCatagory = async(catagoryId = `01`, catagoryName = `Breaking News`
     }
 }
 
+
+// catagories section items (news) shown on ui 
+
 const displayOpenCatagory = async(catagoryDetails, catagoryName) => {
+    
     //default sorted by view 
     catagoryDetails.sort(((cat1, cat2) => cat2.total_view - cat1.total_view));
-    //found items 
+    
+    //found items in a catagory by number 
     try{
         let getItemsFounded = document.getElementById(`items-founded`);
         getItemsFounded.innerHTML = ``;
@@ -72,7 +86,8 @@ const displayOpenCatagory = async(catagoryDetails, catagoryName) => {
         console.log(err);
     }
 
-    // no data found massage
+
+    // show no data found massage
     try{
         let getNoDataFound = document.getElementById(`data-not-found`);
     if(catagoryDetails.length === 0){
@@ -81,6 +96,7 @@ const displayOpenCatagory = async(catagoryDetails, catagoryName) => {
         getNoDataFound.classList.add(`d-none`);
     }
     
+    // appending catagories items
     let getCatagoriesItemsContainer = document.getElementById(`catagories-items-container`);
     getCatagoriesItemsContainer.innerHTML = ``;
     catagoryDetails.forEach(catagoryItem => {
@@ -121,11 +137,13 @@ const displayOpenCatagory = async(catagoryDetails, catagoryName) => {
     }catch(err){
         console.log(err);
     }
+
     // spinner end 
     spinnerLoader(false);
 }
 
 
+// show details(modal) content loading 
 const loadShowDetails = async(showId) => {
     try{
         let url = `https://openapi.programming-hero.com/api/news/${showId}`;
@@ -137,6 +155,7 @@ const loadShowDetails = async(showId) => {
     }
 }
 
+// display show details modal
 const displayShowDetails = showDetails => {
     let modalTitle = document.getElementById(`showDetailsModalLabel`);
     modalTitle.innerText = showDetails.title;
